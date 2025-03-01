@@ -21,14 +21,15 @@ public class RandommobblockClient implements ClientModInitializer {
         LOGGER.info("Initialized!");
         PlayerBlockBreakEvents.AFTER.register((world, playerEntity, blockPos, blockState, blockEntity) -> {
             Random random = new Random();
-            //Check if mob is saved or not /(maybe
+            //Check if mob is saved or not /(maybe:
             // if (map.get(blockstate.getBlock().toString()) = null) {
                 String temp = mobs.get(random.nextInt(mobs.size())).toLowerCase();
                 //map.put(blockstate.getBLock().toString(), temp)
             //} else {
                 //String temp = map.get(blockstate.getBlock().toString())
-            //}
+            //})
             try {
+                //noinspection OptionalGetWithoutIsPresent
                 EntityType.get(temp).get().spawn((ServerWorld) world, blockPos, SpawnReason.EVENT);
             } catch (Exception e) {
                 LOGGER.warn("I made a serious mistake while coding...");
