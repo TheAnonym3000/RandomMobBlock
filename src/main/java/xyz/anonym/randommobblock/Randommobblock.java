@@ -16,14 +16,16 @@ import java.util.Random;
 public class Randommobblock implements ModInitializer {
     public static final String MOD_ID = "randommobblock";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
+    public static SQLHelper sqlHelper;
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing...");
         String worldstr = "world";
         List<String> mobs = Arrays.asList("ALLAY", "ARMADILLO", "AXOLOTL", "BAT", "BEE", "BLAZE", "BOGGED", "BREEZE", "CAMEL", "CAT", "CAVE_SPIDER", "CHICKEN", "COD", "COW", "CREAKING", "CREEPER", "DOLPHIN", "DONKEY", "DROWNED", "ENDERMAN", "ENDERMITE", "EVOKER", "FOX", "FROG", "GHAST", "GLOW_SQUID", "GOAT", "GUARDIAN", "HOGLIN", "HORSE", "HUSK", "ILLUSIONER", "IRON_GOLEM", "LLAMA", "MAGMA_CUBE", "MOOSHROOM", "MULE", "OCELOT", "PANDA", "PARROT", "PHANTOM", "PIG", "PIGLIN", "PIGLIN_BRUTE", "PILLAGER", "POLAR_BEAR", "PUFFERFISH", "RABBIT", "RAVAGER", "SALMON", "SHEEP", "SHULKER", "SILVERFISH", "SKELETON", "SKELETON_HORSE", "SLIME", "SNIFFER", "SNOW_GOLEM", "SPIDER", "SQUID", "STRAY", "STRIDER", "TADPOLE", "TRADER_LLAMA", "TROPICAL_FISH", "TURTLE", "VEX", "VILLAGER", "VINDICATOR", "WANDERING_TRADER", "WITCH", "WITHER_SKELETON", "WOLF", "ZOGLIN", "ZOMBIE", "ZOMBIE_HORSE", "ZOMBIE_VILLAGER", "ZOMBIFIED_PIGLIN");
-        SQLHelper sqlHelper = new SQLHelper("randommobblock/"+worldstr.replace("/","").replace(" ","-").replace("\\","")+".db");
+    
         LOGGER.info("Initialized!");
+
+        // das im Event: sqlHelper = new SQLHelper("randommobblock/"+worldstr.replace("/","").replace(" ","-").replace("\\","")+".db");
 
         PlayerBlockBreakEvents.AFTER.register((world, playerEntity, blockPos, blockstate, blockEntity) -> {
             Random random = new Random();
