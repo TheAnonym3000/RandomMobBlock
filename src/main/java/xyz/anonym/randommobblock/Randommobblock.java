@@ -36,7 +36,7 @@ public class Randommobblock implements ModInitializer {
                 temp = temp.substring(temp.lastIndexOf("/") + 1);
             }
             String worldstr = temp;
-            sqlHelper = new SQLHelper("randommobblock/"+worldstr.replace("/","").replace(" ","-").replace("\\","")+".db");
+            sqlHelper = new SQLHelper("randommobblock/"+worldstr.replace("/","").replace(" ","-").replace("\\","").replace("(", "").replace(")", "")+".db");
         });
 
         PlayerBlockBreakEvents.AFTER.register((world, playerEntity, blockPos, blockstate, blockEntity) -> {
